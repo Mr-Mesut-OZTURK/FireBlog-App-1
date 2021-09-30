@@ -1,10 +1,10 @@
 import "./Navbar.css"
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import navImg from "../../assets/clarusway.png"
 import { Link } from "react-router-dom"
 import { auth, logout } from "../../helper/firebase"
 import { AuthContext } from "../../context/AuthContext"
-import { Button, Typography } from "@mui/material"
+import { Button } from "@mui/material"
 
 
 
@@ -68,6 +68,13 @@ const Navbar = () => {
                                         onClick={() => setMenuActive(!menuActive)}
                                     >
                                         Profile
+                                    </Link>
+                                    <Link
+                                        className="menu__link"
+                                        to="/addpost"
+                                        onClick={() => setMenuActive(!menuActive)}
+                                    >
+                                        New
                                     </Link>
                                     <Button
                                         variant="contained"
