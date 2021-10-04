@@ -1,24 +1,26 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { DataContext } from "../../context/DataContext"
 
-import { Container, Typography, Box } from '@mui/material'
+import { Container, Typography, Box, Button } from '@mui/material'
 
 import DashboardCard from './DashboardCard';
+import { useHistory } from 'react-router-dom';
 
 
 
 const Dashboard = () => {
 
-    
-    const {posts} = useContext(DataContext)
-    
+    const history = useHistory()
+
+    const { posts } = useContext(DataContext)
+
     const [data, setData] = useState(posts)
-    
+
     useEffect(() => {
         setData(posts)
         // console.log("Dashboard")
     }, [posts])
-    
+
     return (
         <Container
             sx={{
@@ -29,6 +31,14 @@ const Dashboard = () => {
                 pt: 8,
             }}
         >
+
+            <Button
+            variant="contained"
+            color="primary"
+                onClick={() => history.push("/chat")}
+            >
+                Chat
+            </Button>
 
             <Typography
                 variant="h3"
@@ -51,7 +61,7 @@ const Dashboard = () => {
                     gridGap: "30px",
                     // border: "solid",
                 }}
-            > 
+            >
                 {
                     data.map((post, index) => (
                         <DashboardCard num={index} key={index} post={post.data()} postId={post.id}>

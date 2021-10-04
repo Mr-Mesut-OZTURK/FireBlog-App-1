@@ -13,7 +13,7 @@ import { loginWithEmail, loginWithGoogle } from '../../helper/firebase';
 const Login = () => {
 
     const value = useContext(AuthContext)
-    console.log(value)
+    // console.log(value)
 
     const googleClick = () => {
        loginWithGoogle()
