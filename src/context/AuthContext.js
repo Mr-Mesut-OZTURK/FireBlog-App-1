@@ -12,7 +12,8 @@ const AuthContextProvider = (props) => {
 
 
     useEffect(() => {
-        loginControl(setUserInfo, setPending)
+        const login = loginControl(setUserInfo, setPending)
+        return login
     }, [])
 
 
